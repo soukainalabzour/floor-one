@@ -6,7 +6,7 @@
 }
 
 body {
-	margin: 1px;
+	margin: 10px;
 	padding: 0;
 	width: 100vw;
 	height: 100vh;
@@ -14,12 +14,12 @@ body {
 	display: flex;
 	align-items: flex-end;
 	justify-content: center;
-	
+	--cbz: cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .content {
 	--frame: #070b32;
-	
+
 	--glass: 337deg;
 	--luz1: hsl(var(--glass) 60% 50% / 60%);
 	--luz2: hsl(var(--glass) 54% 32%);
@@ -31,8 +31,7 @@ body {
 	align-items: flex-end;
 	justify-content: center;
     position: relative;
-    bottom: 20%;
-	left: 0;
+    bottom: 30%;
 }
 
 
@@ -50,9 +49,6 @@ body {
 	width: calc(var(--width) * 1vmin);
 	position: absolute;
 	transform: rotateY(-8deg) rotateX(5deg) translateZ(-24vmin);
-	border-radius: 5px solid yellow ;
-	
-
 }
 
 .cuboid .side {
@@ -61,7 +57,7 @@ body {
 	left: 50%;
 	height: 100%;
 	width: 100%;
-	
+	border-radius: 1px;
 }
 
 
@@ -78,14 +74,14 @@ body {
 	background: hsl(var(--hue), var(--sat), 35%);
 }
 .cuboid .side:nth-of-type(3) {
-   
+
 	width: calc(var(--depth) * 1vmin);
 	transform: translate(-50%, -50%) rotateY(90deg)
 		translate3d(0, 0, calc(var(--width) * 0.5vmin));
 	background: hsl(var(--hue), var(--sat), 35%);
 }
 .cuboid .side:nth-of-type(4) {
-   
+
 	width: calc(var(--depth) * 1vmin);
 	transform: translate(-50%, -50%) rotateY(-90deg)
 		translate3d(0, 0, calc(var(--width) * 0.5vmin));
@@ -111,7 +107,7 @@ body {
 
 
 
-/* FLOOR  */
+/* FLOOR */
 
 .floor {
 	--width: 40;
@@ -122,8 +118,6 @@ body {
 	--lines-front: repeating-linear-gradient(90deg, var(--luz1) 0% calc(100% - 0.275vmin), var(--frame) calc(100% - 0.275vmin) 100%);
 	--lines-side: repeating-linear-gradient(90deg, var(--luz1) 0% calc(100% - 1.5vmin), var(--frame) calc(100% - 1.5vmin) 100%);
 }
-
-
 
 .floor .side { border: 3px solid var(--frame); }
 
@@ -160,7 +154,7 @@ body {
 
 
 
-/* ROOF  */
+/* ROOF */
 
 .roof {    
 	--height: 3;
@@ -171,9 +165,7 @@ body {
 	transform: rotateY(-8deg) rotateX(5deg)  translateZ(-18vmin);
 }
 
-
 .roof.two { bottom: 13vmin; }
-/*
 .roof.three { bottom: 23vmin; }
 .roof.four { bottom: 33vmin; }
 .roof.five { bottom: 43vmin; }
@@ -184,13 +176,13 @@ body {
 
 
 
-/* AIR COOLER 
+/* AIR COOLER */
 
 .air-cooler {
 	--height: 3.9;
 	--width: 10;
 	--depth: 52;
-	bottom: 18.5vmin;
+	bottom: 8.5vmin;
 	left: 25vmin;
 }
 
@@ -198,7 +190,7 @@ body {
 	--height: 2.4;
 	--width: 5;
 	--depth: 20;
-	bottom: 18.5vmin;
+	bottom: 8.5vmin;
 	left: 42vmin;
 	transform: rotateY(-8deg) rotateX(5deg) translateZ(-7vmin);
 }
@@ -217,7 +209,15 @@ body {
 	background-size: 100% 25%;
 }
 
- /* BLINDS  */
+
+
+
+
+
+
+
+
+/* BLINDS */
 
 .floor .side:nth-of-type(1):before, .floor .side:nth-of-type(1):after, 
 .floor .side:nth-of-type(3):before, .floor .side:nth-of-type(3):after {
@@ -237,7 +237,7 @@ body {
 }
 
 
-/* F 1  */
+/* F 1 */
 .floor.one .side:nth-of-type(1):before, 
 .floor.one .side:nth-of-type(1):after {
 	box-shadow: 0vmin 0.65vmin 0.25vmin 0.25vmin #0006 inset;
@@ -246,7 +246,10 @@ body {
 	box-shadow: 0vmin 0.65vmin 0.25vmin 0.25vmin #0006 inset, -7.75vmin 0 0 0 #0a0a0a;
 }
 
- /* RIGHT SIDE   */
+
+
+
+/*  RIGHT SIDE  */
 
 .floor .side:nth-of-type(3):before,
 .floor .side:nth-of-type(3):after{
@@ -256,7 +259,7 @@ body {
 	filter: brightness(1.25);
 }
 
-/* F 1  */
+/* F 1 */
 .floor.one .side:nth-of-type(3):before,
 .floor.two .side:nth-of-type(3):before {
 	left: 0;
@@ -266,6 +269,37 @@ body {
 	left: 35.25%;
 }
 
+/* CACTUS */
+i.cactus {
+	background: var(--bush);
+	width: 0.85vmin;
+	height: 2vmin;
+	position: absolute;
+	bottom: 3vmin;
+	left: 3px;
+	border-radius: 100% 100% 10% 45%;
+	transform: rotate(-2deg);
+}
 
+i.cactus:before {
+	content: "";
+	position: absolute;
+	background: var(--bush);
+	width: 0.75vmin;
+	height: 2vmin;
+	bottom: 1.4vmin;
+	left: -0.35vmin;
+	border-radius: 100%;
+}
 
-
+i.cactus:after {
+	content: "";
+	position: absolute;
+	background: var(--bush);
+	width: 0.5vmin;
+	height: 1.5vmin;
+	bottom: 3vmin;
+	left: 0.075vmin;
+	border-radius: 100%;
+	box-shadow: -0.6vmin 0.2vmin 0 -0.075vmin var(--bush), 0.4vmin 1.5vmin 0 -0.075vmin var(--bush);
+}
